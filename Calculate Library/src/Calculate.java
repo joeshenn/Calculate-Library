@@ -11,10 +11,10 @@ public class Calculate {
 	public static int cube(int number) {
 		return number*number*number;
 	}
-	public static double average2(double num1, double num2) {
+	public static double average(double num1, double num2) {
 		return (num1+num2)/2;
 	}
-	public static double average3(double num1, double num2, double num3) {
+	public static double average(double num1, double num2, double num3) {
 		return (num1+num2+num3)/3;
 	}
 	public static double toDegrees(double radians) {
@@ -50,6 +50,38 @@ public class Calculate {
 		}
 		else {
 			return num*-1;
+		}
+	}
+	public static double max(double num1, double num2) {
+		if(num1 >= num2) {
+			return num1;
+		}else {
+			return num2;
+		}
+	}
+	public static double max(double num1, double num2, double num3) {
+		if(num1 >= num2 && num1 >= num3) {
+			return num1;
+		}else if(num2 >= num1 && num2 >= num3){
+			return num2;
+		}else {
+			return num3;
+		}
+	}
+	public static int min(int num1, int num2) {
+		if(num1 <= num2) {
+			return num1;
+		}else {
+			return num2;
+		}
+	}
+	public static double round2(double num1) {
+		int thousandTimes = (int) (num1 * 1000);
+		int hundredTimes = (int)(num1*100);
+		if(thousandTimes%10 >=5) {
+			return (double)(hundredTimes+1)/100.0;
+		}else {
+			return (double)(hundredTimes/100.0);
 		}
 	}
 }
