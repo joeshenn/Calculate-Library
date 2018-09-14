@@ -84,4 +84,44 @@ public class Calculate {
 			return (double)(hundredTimes/100.0);
 		}
 	}
+	public static double exponent(double num, int exp) {
+		double answer = num;
+		for(int i=1; i < exp; i++) {
+			answer = answer * num;
+		}
+		return answer;
+	}
+	public static int factorial(int num) {
+		for(int i=num-1;i>0;i--) {
+			num = num*i;
+		}
+		return num;
+	}
+	public static boolean isPrime(int num) {
+		int count = num-1;
+		while (count>0){
+			if(Calculate.isDivisbleBy(num, count)==false) {
+				count--;
+			}
+			else {
+				break;
+			}
+		}
+		if (count==1) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	/* 
+		int smaller = Calculate.min(num1, num2);
+		int bigger = (int) Calculate.max(num1, num2);
+		if(bigger%smaller==0) {
+			return smaller;
+		}
+		else {
+			while(smaller>1) {
+			}
+		}
+	} */
 }

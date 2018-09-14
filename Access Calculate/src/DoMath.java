@@ -12,8 +12,8 @@ public class DoMath {
 		System.out.println(Calculate.toRadians(360));
 		System.out.println(Calculate.toMixedNum(22, 7));
 		System.out.println(Calculate.foil(5, 6, 7, 8, "x"));
-		System.out.println(Calculate.isDivisbleBy(5, 10));
-		System.out.println(Calculate.round2(5.328));
+		System.out.println(Calculate.isDivisbleBy(9,9));
+		System.out.println(Calculate.isPrime(13));
 	}
 
 }
