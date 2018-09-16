@@ -113,15 +113,26 @@ public class Calculate {
 			return false;
 		}
 	}
-	/* 
+	public static int gcf(int num1, int num2) {
 		int smaller = Calculate.min(num1, num2);
 		int bigger = (int) Calculate.max(num1, num2);
-		if(bigger%smaller==0) {
-			return smaller;
-		}
-		else {
-			while(smaller>1) {
+		int count = smaller;
+		while(count>1) {
+			if(bigger%count==0 && smaller%count==0) {
+				return count;
+			}
+			else {
+				count--;
 			}
 		}
-	} */
+		return 1;
+	} 
+	public static double sqrt(double num) {
+		double answer1=10;
+		while(Calculate.absValue((answer1*answer1)-num)>=0.005) {
+			answer1 =(0.5)*((num/answer1)+answer1);
+	}
+		
+		return Calculate.round2(answer1);
+	}
 }
