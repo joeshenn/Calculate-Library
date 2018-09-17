@@ -8,27 +8,36 @@ public class Calculate {
 		return number*number;
 		
 	}
+	//returns the cube of the input
 	public static int cube(int number) {
 		return number*number*number;
 	}
+	//returns the average of 2 inputs
 	public static double average(double num1, double num2) {
 		return (num1+num2)/2;
 	}
+	//returns the average of 3 inputs 
 	public static double average(double num1, double num2, double num3) {
 		return (num1+num2+num3)/3;
 	}
+	//returns the degree conversion of an input in radians 
 	public static double toDegrees(double radians) {
 		return (radians/3.14159);
 	}
+	//returns the radian conversion of a degree input
 	public static double toRadians(double degrees) {
 		return (degrees/180)*3.14159;
 	}
+	//returns the discriminant based off of the three input, which represent the co-efficients of a 
+	//quadratic equation in standard form
 	public static double discriminant(double a, double b, double c) {
 		return (b*b)-(4*a*c);
 	}
+	//returns an improper fraction conversion from a mixed number input
 	public static String toImproperFrac(int wholenum,int numerator, int denominator) {
 		return (wholenum*denominator)+numerator +"/" + numerator;
 	}
+	
 	public static String toMixedNum(int numerator, int denominator) {
 		return (numerator/denominator)+"_"+7%2+"/"+denominator;
 	}
