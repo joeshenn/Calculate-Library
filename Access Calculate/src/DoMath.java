@@ -5,7 +5,7 @@
 public class DoMath {
 
 	public static void main(String[] args) {
-		System.out.println(Calculate.sqrt(5));
+		System.out.println(Calculate.sqrt(-5));
 
 	}
 

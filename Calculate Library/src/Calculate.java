@@ -45,7 +45,10 @@ public class Calculate {
 		return a*b + "n^2" + " + " + ((a*d)+(b*c)) + "n" + " + " + c*d;
 	}
 	public static boolean isDivisbleBy(int num1, int num2) {
-		if(num1%num2 == 0) {
+		if(num1<0 | num2<0) {
+			throw new IllegalArgumentException();
+		}
+		else if(num1%num2 == 0) {
 			return true;
 		}
 		else {
@@ -94,17 +97,34 @@ public class Calculate {
 		}
 	}
 	public static double exponent(double num, int exp) {
+		if(exp<0) {
+			throw new IllegalArgumentException();
+		}
+		else if(exp==0) {
+			return 1;
+		}
+		else {
 		double answer = num;
 		for(int i=1; i < exp; i++) {
 			answer = answer * num;
 		}
 		return answer;
+		}
 	}
 	public static int factorial(int num) {
+		if(num<0) {
+			throw new IllegalArgumentException("negative numbers are not accepted");
+		}
+		else if(num==0) {
+			return 1;
+		}
+		else {
+			
 		for(int i=num-1;i>0;i--) {
 			num = num*i;
 		}
 		return num;
+		}
 	}
 	public static boolean isPrime(int num) {
 		int count = num-1;
@@ -137,11 +157,16 @@ public class Calculate {
 		return 1;
 	} 
 	public static double sqrt(double num) {
+		if(num<0) {
+			throw new IllegalArgumentException("negative numbers are not accepted");
+		}
+		else {
 		double answer1=10;
 		while(Calculate.absValue((answer1*answer1)-num)>=0.005) {
 			answer1 =(0.5)*((num/answer1)+answer1);
 	}
 		
 		return Calculate.round2(answer1);
+			}
 	}
 }
