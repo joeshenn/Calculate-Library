@@ -46,7 +46,7 @@ public class Calculate {
 	}
 	public static boolean isDivisbleBy(int num1, int num2) {
 		if(num1<0 | num2<0) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("negative numbers are not accepted");
 		}
 		else if(num1%num2 == 0) {
 			return true;
@@ -81,6 +81,13 @@ public class Calculate {
 		}
 	}
 	public static int min(int num1, int num2) {
+		if(num1 <= num2) {
+			return num1;
+		}else {
+			return num2;
+		}
+	}
+	public static double mindouble(double num1, double num2) {
 		if(num1 <= num2) {
 			return num1;
 		}else {
@@ -168,5 +175,18 @@ public class Calculate {
 		
 		return Calculate.round2(answer1);
 			}
+	}
+	public static String quadForm(int a, int b, int c) {
+		double discrim= Calculate.discriminant(a, b, c);
+		if(discrim<0) {
+			return "no real roots";
+		}else if(discrim==0) {
+			double singleRoot= Calculate.round2((-1*b)/(2*a));
+			return ""+singleRoot;
+		}else {
+			double root1 = ((-1*b)+Calculate.sqrt(discrim))/(2*a);
+			double root2 = ((-1*b)-Calculate.sqrt(discrim))/(2*a);
+			return Calculate.mindouble(root1, root2) +" and " + Calculate.max(root1, root2);
+		}
 	}
 }
