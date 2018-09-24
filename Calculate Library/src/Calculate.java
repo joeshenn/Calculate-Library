@@ -37,13 +37,16 @@ public class Calculate {
 	public static String toImproperFrac(int wholenum,int numerator, int denominator) {
 		return (wholenum*denominator)+numerator +"/" + numerator;
 	}
-	
+	//converts an improper fraction to a mixed number
 	public static String toMixedNum(int numerator, int denominator) {
 		return (numerator/denominator)+"_"+7%2+"/"+denominator;
 	}
+	//given an expression in the form (ax*b)(cx*d), this method will return the expansion in 
+	//the form of a quadratic equation in standard form
 	public static String foil(int a, int b, int c, int d, String e) {
-		return a*b + "n^2" + " + " + ((a*d)+(b*c)) + "n" + " + " + c*d;
+		return a*c + e + "^2" + " + " + ((a*d)+(b*c)) + e + " + " + b*d;
 	}
+	//
 	public static boolean isDivisbleBy(int num1, int num2) {
 		if(num1<0 | num2<0) {
 			throw new IllegalArgumentException("negative numbers are not accepted");
