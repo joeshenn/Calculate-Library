@@ -22,7 +22,7 @@ public class Calculate {
 	}
 	//returns the degree conversion of an input in radians 
 	public static double toDegrees(double radians) {
-		return (radians/3.14159);
+		return ((radians/3.14159)*180);
 	}
 	//returns the radian conversion of a degree input
 	public static double toRadians(double degrees) {
@@ -35,11 +35,11 @@ public class Calculate {
 	}
 	//returns an improper fraction conversion from a mixed number input
 	public static String toImproperFrac(int wholenum,int numerator, int denominator) {
-		return (wholenum*denominator)+numerator +"/" + numerator;
+		return (wholenum*denominator)+numerator +"/" + denominator;
 	}
 	//converts an improper fraction to a mixed number
 	public static String toMixedNum(int numerator, int denominator) {
-		return (numerator/denominator)+"_"+7%2+"/"+denominator;
+		return (numerator/denominator)+"_"+numerator%denominator+"/"+denominator;
 	}
 	//given an expression in the form (ax*b)(cx*d), this method will return the expansion in 
 	//the form of a quadratic equation in standard form
@@ -47,11 +47,11 @@ public class Calculate {
 		return a*c + e + "^2" + " + " + ((a*d)+(b*c)) + e + " + " + b*d;
 	}
 	//this method determines whether or not one integer is evenly divisible by another 
-	public static boolean isDivisbleBy(int num1, int num2) {
-		if(num1<0 | num2<0) {
+	public static boolean isDivisibleBy(int num1, int num2) {
+		/*if(num1<0 | num2<0) {
 			throw new IllegalArgumentException("negative numbers are not accepted");
-		}
-		else if(num2==0) {
+		}*/
+		/*else*/ if(num2==0) {
 			throw new IllegalArgumentException("cannot divide by zero");
 		}
 		else if(num1%num2 == 0) {
@@ -165,7 +165,7 @@ public class Calculate {
 	public static boolean isPrime(int num) {
 		int count = num-1;
 		while (count>0){
-			if(Calculate.isDivisbleBy(num, count)==false) {
+			if(Calculate.isDivisibleBy(num, count)==false) {
 				count--;
 			}
 			else {

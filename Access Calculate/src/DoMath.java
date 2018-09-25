@@ -8,7 +8,7 @@ public class DoMath {
 		System.out.println(Calculate.sqrt(5));
 		System.out.println(Calculate.quadForm(1,-4, 4));
 		System.out.println(Calculate.absValue(-5));
-		System.out.println(Calculate.round2(-5.254));
+		
 
 	}
 
