@@ -46,10 +46,13 @@ public class Calculate {
 	public static String foil(int a, int b, int c, int d, String e) {
 		return a*c + e + "^2" + " + " + ((a*d)+(b*c)) + e + " + " + b*d;
 	}
-	//
+	//this method determines whether or not one integer is evenly divisible by another 
 	public static boolean isDivisbleBy(int num1, int num2) {
 		if(num1<0 | num2<0) {
 			throw new IllegalArgumentException("negative numbers are not accepted");
+		}
+		else if(num2==0) {
+			throw new IllegalArgumentException("cannot divide by zero");
 		}
 		else if(num1%num2 == 0) {
 			return true;
@@ -59,6 +62,7 @@ public class Calculate {
 			
 		}
 	}
+	//this method returns the absolute value of the number passed
 	public static double absValue(double num) {
 		if(num >= 0) {
 			return num;
@@ -67,6 +71,7 @@ public class Calculate {
 			return num*-1;
 		}
 	}
+	//this method accepts two doubles and returns the larger one
 	public static double max(double num1, double num2) {
 		if(num1 >= num2) {
 			return num1;
@@ -74,6 +79,7 @@ public class Calculate {
 			return num2;
 		}
 	}
+	//this method accepts three doubles and returns the largest of the three
 	public static double max(double num1, double num2, double num3) {
 		if(num1 >= num2 && num1 >= num3) {
 			return num1;
@@ -83,6 +89,7 @@ public class Calculate {
 			return num3;
 		}
 	}
+	//this method accepts 2 integers and returns the smaller of the two
 	public static int min(int num1, int num2) {
 		if(num1 <= num2) {
 			return num1;
@@ -90,22 +97,39 @@ public class Calculate {
 			return num2;
 		}
 	}
-	public static double mindouble(double num1, double num2) {
+	//this method accepts 2 doubles and returns the smaller of the two
+	public static double min(double num1, double num2) {
 		if(num1 <= num2) {
 			return num1;
 		}else {
 			return num2;
 		}
 	}
+	//this method rounds a double to two decimal places
 	public static double round2(double num1) {
 		int thousandTimes = (int) (num1 * 1000);
 		int hundredTimes = (int)(num1*100);
+		if(num1>0) {
 		if(thousandTimes%10 >=5) {
 			return (double)(hundredTimes+1)/100.0;
 		}else {
 			return (double)(hundredTimes/100.0);
 		}
-	}
+		}
+		else if(num1==0) {
+			return 0;
+		}
+		else {
+			if(Calculate.absValue(thousandTimes)%10 >=5) {
+				return (double)(hundredTimes-1)/100.0;
+			}else {
+				return (double)(hundredTimes/100.0);
+			}
+			
+		}
+			
+		}
+	//this method raises a double to a positive integer power
 	public static double exponent(double num, int exp) {
 		if(exp<0) {
 			throw new IllegalArgumentException();
@@ -121,6 +145,7 @@ public class Calculate {
 		return answer;
 		}
 	}
+	//this method returns the factorial of the integer input
 	public static int factorial(int num) {
 		if(num<0) {
 			throw new IllegalArgumentException("negative numbers are not accepted");
@@ -136,6 +161,7 @@ public class Calculate {
 		return num;
 		}
 	}
+	//this method determines whether or not the input is prime
 	public static boolean isPrime(int num) {
 		int count = num-1;
 		while (count>0){
@@ -152,6 +178,7 @@ public class Calculate {
 			return false;
 		}
 	}
+	//this method finds the greatest common factor of two integer inputs
 	public static int gcf(int num1, int num2) {
 		int smaller = Calculate.min(num1, num2);
 		int bigger = (int) Calculate.max(num1, num2);
@@ -166,6 +193,7 @@ public class Calculate {
 		}
 		return 1;
 	} 
+	//this method returns the square root of a double input
 	public static double sqrt(double num) {
 		if(num<0) {
 			throw new IllegalArgumentException("negative numbers are not accepted");
@@ -179,17 +207,19 @@ public class Calculate {
 		return Calculate.round2(answer1);
 			}
 	}
+	//this method accepts the integer coefficients of a quadratic equation in standard form and returns
+	//the roots
 	public static String quadForm(int a, int b, int c) {
 		double discrim= Calculate.discriminant(a, b, c);
 		if(discrim<0) {
 			return "no real roots";
 		}else if(discrim==0) {
-			double singleRoot= Calculate.round2((-1*b)/(2*a));
+			double singleRoot= Calculate.round2((-1.0*b)/(2.0*a));
 			return ""+singleRoot;
 		}else {
-			double root1 = ((-1*b)+Calculate.sqrt(discrim))/(2*a);
-			double root2 = ((-1*b)-Calculate.sqrt(discrim))/(2*a);
-			return Calculate.mindouble(root1, root2) +" and " + Calculate.max(root1, root2);
+			double root1 = ((-1.0*b)+Calculate.sqrt(discrim))/(2.0*a);
+			double root2 = ((-1.0*b)-Calculate.sqrt(discrim))/(2.0*a);
+			return Calculate.min(root1, root2) +" and " + Calculate.max(root1, root2);
 		}
 	}
 }
