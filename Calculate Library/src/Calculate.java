@@ -165,7 +165,7 @@ public class Calculate {
 	public static boolean isPrime(int num) {
 		int count = num-1;
 		while (count>0){
-			if(Calculate.isDivisibleBy(num, count)==false) {
+			if(isDivisibleBy(num, count)==false) {
 				count--;
 			}
 			else {
@@ -180,8 +180,8 @@ public class Calculate {
 	}
 	//this method finds the greatest common factor of two integer inputs
 	public static int gcf(int num1, int num2) {
-		int smaller = Calculate.min(num1, num2);
-		int bigger = (int) Calculate.max(num1, num2);
+		int smaller = min(num1, num2);
+		int bigger = (int) max(num1, num2);
 		int count = smaller;
 		while(count>1) {
 			if(bigger%count==0 && smaller%count==0) {
@@ -204,22 +204,22 @@ public class Calculate {
 			answer1 =(0.5)*((num/answer1)+answer1);
 	}
 		
-		return Calculate.round2(answer1);
+		return round2(answer1);
 			}
 	}
 	//this method accepts the integer coefficients of a quadratic equation in standard form and returns
 	//the roots
 	public static String quadForm(int a, int b, int c) {
-		double discrim= Calculate.discriminant(a, b, c);
+		double discrim= discriminant(a, b, c);
 		if(discrim<0) {
 			return "no real roots";
 		}else if(discrim==0) {
-			double singleRoot= Calculate.round2((-1.0*b)/(2.0*a));
+			double singleRoot= round2((-1.0*b)/(2.0*a));
 			return ""+singleRoot;
 		}else {
-			double root1 = ((-1.0*b)+Calculate.sqrt(discrim))/(2.0*a);
-			double root2 = ((-1.0*b)-Calculate.sqrt(discrim))/(2.0*a);
-			return Calculate.min(root1, root2) +" and " + Calculate.max(root1, root2);
+			double root1 = ((-1.0*b)+sqrt(discrim))/(2.0*a);
+			double root2 = ((-1.0*b)-sqrt(discrim))/(2.0*a);
+			return min(root1, root2) +" and " + max(root1, root2);
 		}
 	}
 }
